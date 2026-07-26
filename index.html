@@ -1,32 +1,460 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sadew Thanapathy</title>
-  <style>
-    body {
-      font-family: -apple-system, Helvetica, Arial, sans-serif;
-      max-width: 700px;
-      margin: 80px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      color: #222;
-    }
-    h1 { margin-bottom: 4px; }
-    p.subtitle { color: #666; margin-top: 0; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sadew Thanapathy</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --ink: #1c1c1e;
+    --muted: #6b6b70;
+    --accent: #4f5df5;
+    --accent-soft: #eef0ff;
+    --card-border: #e9e9e7;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ---------- Nav ---------- */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6vw;
+    z-index: 100;
+    background: rgba(250, 250, 249, 0.7);
+    backdrop-filter: blur(10px);
+    transition: box-shadow 0.3s ease, padding 0.3s ease;
+  }
+  nav.scrolled {
+    box-shadow: 0 1px 0 var(--card-border);
+    padding: 14px 6vw;
+  }
+  nav .logo {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+  }
+  nav ul li a {
+    color: var(--ink);
+    font-size: 0.95rem;
+    position: relative;
+  }
+  nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 1.5px;
+    background: var(--accent);
+    transition: width 0.25s ease;
+  }
+  nav ul li a:hover {
+    text-decoration: none;
+  }
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 6vw;
+    max-width: 900px;
+  }
+
+  .blob {
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--accent-soft), transparent 70%);
+    top: -120px;
+    right: -160px;
+    filter: blur(10px);
+    animation: float 14s ease-in-out infinite;
+    z-index: -1;
+  }
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-30px, 40px) scale(1.08); }
+  }
+
+  .eyebrow {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+    animation-delay: 0.1s;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
+    line-height: 1.05;
+    margin: 14px 0 10px;
+    letter-spacing: -0.03em;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+    animation-delay: 0.25s;
+  }
+
+  .hero .role {
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    color: var(--muted);
+    margin: 0 0 24px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+    animation-delay: 0.4s;
+  }
+
+  .hero p.bio {
+    max-width: 560px;
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+    animation-delay: 0.55s;
+  }
+
+  .hero .cta {
+    display: flex;
+    gap: 14px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+    animation-delay: 0.7s;
+  }
+
+  .btn {
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    display: inline-block;
+  }
+  .btn.primary {
+    background: var(--ink);
+    color: #fff;
+  }
+  .btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+    text-decoration: none;
+  }
+  .btn.ghost {
+    border: 1px solid var(--card-border);
+    color: var(--ink);
+  }
+  .btn.ghost:hover {
+    transform: translateY(-2px);
+    border-color: var(--ink);
+    text-decoration: none;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .scroll-cue {
+    position: absolute;
+    bottom: 36px;
+    left: 6vw;
+    font-size: 0.8rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .scroll-cue .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: bounce 1.6s ease-in-out infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(6px); opacity: 0.4; }
+  }
+
+  /* ---------- Sections ---------- */
+  section {
+    padding: 110px 6vw;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .section-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+    letter-spacing: -0.02em;
+    margin: 0 0 28px;
+  }
+
+  /* About */
+  .about-text {
+    max-width: 680px;
+    font-size: 1.08rem;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+  }
+  .skill {
+    padding: 8px 16px;
+    border: 1px solid var(--card-border);
+    border-radius: 999px;
+    font-size: 0.88rem;
+    background: #fff;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+  .skill:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  /* Projects */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+  }
+  .card {
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 26px;
+    background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+    border-color: transparent;
+  }
+  .card .tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+  .card h3 {
+    margin: 0 0 10px;
+    font-size: 1.15rem;
+  }
+  .card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  /* Contact */
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 6px;
+  }
+  .contact-links a {
+    padding: 12px 22px;
+    border: 1px solid var(--card-border);
+    border-radius: 999px;
+    color: var(--ink);
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+  .contact-links a:hover {
+    transform: translateY(-2px);
+    border-color: var(--ink);
+    background: var(--accent-soft);
+    text-decoration: none;
+  }
+
+  footer {
+    padding: 40px 6vw 60px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 640px) {
+    nav ul { display: none; }
+    .blob { display: none; }
+  }
+</style>
 </head>
 <body>
 
-  <h1>Sadew Thanapathy</h1>
-  <p class="subtitle">Computer Science Student — Specializing in AI and Data Science</p>
+<nav id="nav">
+  <div class="logo">ST</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-  <p>
+<section class="hero">
+  <div class="blob"></div>
+  <div class="eyebrow">Portfolio</div>
+  <h1>Sadew Thanapathy</h1>
+  <p class="role">Computer Science Student, Specializing in AI &amp; Data Science</p>
+  <p class="bio">
     I'm a Computer Science student specializing in AI and Data Science,
     currently building out skills in data analysis, visualization, and
     machine learning.
   </p>
+  <div class="cta">
+    <a href="#projects" class="btn primary">View Projects</a>
+    <a href="#contact" class="btn ghost">Get in Touch</a>
+  </div>
+  <div class="scroll-cue"><span class="dot"></span> Scroll</div>
+</section>
+
+<section id="about">
+  <div class="reveal">
+    <div class="section-label">About</div>
+    <h2>A little more about me</h2>
+    <p class="about-text">
+      Outside of my degree I play
+      football at a competitive level for a club here in Melbourne, and when
+      I'm not training you'll usually find me with a guitar in hand or out
+      exploring somewhere new. I like building things end to end from
+      websites to games and I'm always keen to pick up new tools along
+      the way.
+    </p>
+    <div class="skills">
+      <span class="skill">Python</span>
+      <span class="skill">Java</span>
+      <span class="skill">C++</span>
+      <span class="skill">HTML/CSS</span>
+      <span class="skill">SQL</span>
+      <span class="skill">Machine Learning</span>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="reveal">
+    <div class="section-label">Projects</div>
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="card">
+        <span class="tag">Web App</span>
+        <h3>Climate Data Database &amp; Web Application</h3>
+        <p>Built a database and web application around climate data, covering everything from data storage to a working front end.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Game Dev</span>
+        <h3>Minecraft Game Development</h3>
+        <p>Designed and built a custom Minecraft project with a team, covering game mechanics and world design.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Web Design</span>
+        <h3>Small Business Websites</h3>
+        <p>Designed and built websites for local small businesses, including a bakery, focused on clean and simple customer-facing design.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="reveal">
+    <div class="section-label">Contact</div>
+    <h2>Let's connect</h2>
+    <p class="about-text">Find me here, or reach out through either link below.</p>
+    <div class="contact-links">
+      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/SadewCThanapathy" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; <span id="year"></span> Sadew Thanapathy. Built with care.
+</footer>
+
+<script>
+  // Nav shadow on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Reveal-on-scroll for sections
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
