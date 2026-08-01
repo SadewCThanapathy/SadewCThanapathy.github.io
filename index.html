@@ -74,12 +74,8 @@
     background: var(--accent);
     transition: width 0.25s ease;
   }
-  nav ul li a:hover {
-    text-decoration: none;
-  }
-  nav ul li a:hover::after {
-    width: 100%;
-  }
+  nav ul li a:hover { text-decoration: none; }
+  nav ul li a:hover::after { width: 100%; }
 
   /* ---------- Hero ---------- */
   .hero {
@@ -165,19 +161,13 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     display: inline-block;
   }
-  .btn.primary {
-    background: var(--ink);
-    color: #fff;
-  }
+  .btn.primary { background: var(--ink); color: #fff; }
   .btn.primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 24px rgba(0,0,0,0.15);
     text-decoration: none;
   }
-  .btn.ghost {
-    border: 1px solid var(--card-border);
-    color: var(--ink);
-  }
+  .btn.ghost { border: 1px solid var(--card-border); color: var(--ink); }
   .btn.ghost:hover {
     transform: translateY(-2px);
     border-color: var(--ink);
@@ -242,12 +232,68 @@
     margin: 0 0 28px;
   }
 
-  /* About */
   .about-text {
     max-width: 680px;
     font-size: 1.08rem;
     color: var(--muted);
     line-height: 1.75;
+  }
+
+  /* ---------- About with video background ---------- */
+  .about-video {
+    position: relative;
+    max-width: none;
+    width: 100%;
+    padding: 140px 6vw;
+    margin: 0;
+    overflow: hidden;
+    background: #0f0f14; /* fallback if video fails */
+  }
+
+  .about-video video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  /* Dark scrim: keeps footage visible, guarantees text contrast */
+  .about-video::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(10, 10, 16, 0.78),
+      rgba(10, 10, 16, 0.68) 50%,
+      rgba(10, 10, 16, 0.82)
+    );
+    z-index: 1;
+  }
+
+  .about-video .inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .about-video .section-label { color: #a8b0ff; }
+
+  .about-video h2 {
+    color: #fff;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.55);
+  }
+
+  .about-video .about-text {
+    color: rgba(255,255,255,0.9);
+    text-shadow: 0 1px 14px rgba(0,0,0,0.5);
   }
 
   .skills {
@@ -270,7 +316,58 @@
     background: var(--accent-soft);
   }
 
-  /* Projects */
+  /* Skills sitting on the dark video section */
+  .about-video .skill {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.28);
+    color: #fff;
+    backdrop-filter: blur(6px);
+  }
+  .about-video .skill:hover {
+    background: rgba(255,255,255,0.2);
+    border-color: #fff;
+  }
+
+  /* ---------- Education ---------- */
+  .edu-item {
+    border-left: 2px solid var(--card-border);
+    padding: 4px 0 4px 24px;
+    margin-bottom: 32px;
+    transition: border-color 0.3s ease;
+  }
+  .edu-item:hover { border-color: var(--accent); }
+  .edu-item .years {
+    font-size: 0.85rem;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+  }
+  .edu-item h3 {
+    margin: 6px 0 4px;
+    font-size: 1.15rem;
+  }
+  .edu-item .place {
+    color: var(--muted);
+    font-size: 0.98rem;
+    margin: 0 0 8px;
+  }
+  .edu-item p.detail {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.65;
+  }
+  .award {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  /* ---------- Projects ---------- */
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -296,17 +393,50 @@
     margin-bottom: 10px;
     display: inline-block;
   }
-  .card h3 {
-    margin: 0 0 10px;
-    font-size: 1.15rem;
+  .card h3 { margin: 0 0 10px; font-size: 1.15rem; }
+  .card p { color: var(--muted); font-size: 0.95rem; margin: 0; }
+
+  /* ---------- Photo gallery ---------- */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
   }
-  .card p {
-    color: var(--muted);
-    font-size: 0.95rem;
-    margin: 0;
+  .photo {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    background: #ececeb;
+  }
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .photo:hover img { transform: scale(1.06); }
+  .photo .caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 18px 16px 14px;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .photo:hover .caption {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  /* Contact */
+  /* ---------- Contact ---------- */
   .contact-links {
     display: flex;
     flex-wrap: wrap;
@@ -339,6 +469,12 @@
   @media (max-width: 640px) {
     nav ul { display: none; }
     .blob { display: none; }
+    .about-video { padding: 100px 6vw; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
   }
 </style>
 </head>
@@ -348,7 +484,9 @@
   <div class="logo">ST</div>
   <ul>
     <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#life">Life</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -357,7 +495,7 @@
   <div class="blob"></div>
   <div class="eyebrow">Portfolio</div>
   <h1>Sadew Thanapathy</h1>
-  <p class="role">Computer Science Student, Specializing in AI &amp; Data Science</p>
+  <p class="role">Computer Science Student — Specializing in AI &amp; Data Science</p>
   <p class="bio">
     I'm a Computer Science student specializing in AI and Data Science,
     currently building out skills in data analysis, visualization, and
@@ -370,17 +508,20 @@
   <div class="scroll-cue"><span class="dot"></span> Scroll</div>
 </section>
 
-<section id="about">
-  <div class="reveal">
+<!-- ABOUT with video background -->
+<section id="about" class="about-video">
+  <video id="aboutVideo" muted loop playsinline preload="metadata" poster="media/about-poster.jpg">
+    <source src="media/about-cover.mp4" type="video/mp4">
+  </video>
+  <div class="inner reveal">
     <div class="section-label">About</div>
     <h2>A little more about me</h2>
     <p class="about-text">
-      Outside of my degree I play
-      football at a competitive level for a club here in Melbourne, and when
-      I'm not training you'll usually find me with a guitar in hand or out
-      exploring somewhere new. I like building things end to end from
-      websites to games and I'm always keen to pick up new tools along
-      the way.
+      Outside of my degree I play football at a competitive level for a club
+      here in Melbourne, and when I'm not training you'll usually find me with
+      a guitar in hand or out exploring somewhere new. I like building things
+      end to end — from websites to games — and I'm always keen to pick up new
+      tools along the way.
     </p>
     <div class="skills">
       <span class="skill">Python</span>
@@ -388,15 +529,38 @@
       <span class="skill">C++</span>
       <span class="skill">HTML/CSS</span>
       <span class="skill">SQL</span>
-      <span class="skill">Machine Learning</span>
     </div>
   </div>
 </section>
 
+<!-- EDUCATION -->
+<section id="education">
+  <div class="reveal">
+    <div class="section-label">Education</div>
+    <h2>Where I've studied</h2>
+
+    <div class="edu-item">
+      <div class="years">2025 — 2027</div>
+      <h3>Bachelor of Computer Science</h3>
+      <p class="place">RMIT University, Melbourne</p>
+      <p class="detail">Specialising in Artificial Intelligence, Machine Learning and Data Science.</p>
+    </div>
+
+    <div class="edu-item">
+      <div class="years">2023 — 2024</div>
+      <h3>NCUK International Foundation Year</h3>
+      <p class="place">APIIT — Asia Pacific Institute of Information Technology</p>
+      <p class="detail">Completed prior to commencing at RMIT.</p>
+      <span class="award">Top 10 highest performing students in Asia</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
 <section id="projects">
   <div class="reveal">
     <div class="section-label">Projects</div>
-    <h2>Projects</h2>
+    <h2>What I've built</h2>
     <div class="projects-grid">
       <div class="card">
         <span class="tag">Web App</span>
@@ -413,10 +577,38 @@
         <h3>Small Business Websites</h3>
         <p>Designed and built websites for local small businesses, including a bakery, focused on clean and simple customer-facing design.</p>
       </div>
+      <div class="card">
+        <span class="tag">In Progress</span>
+        <h3>Hand-Drawn Data Visualisation</h3>
+        <p>A hand-drawn chart inspired by pioneers of data visualisation like Playfair, Minard, and Nightingale — capturing the full creative process.</p>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- LIFE / PHOTOS -->
+<section id="life">
+  <div class="reveal">
+    <div class="section-label">Beyond the screen</div>
+    <h2>Life outside the code</h2>
+    <div class="gallery">
+      <div class="photo">
+        <img src="media/football-1.jpg" alt="Playing football">
+        <div class="caption">On the pitch</div>
+      </div>
+      <div class="photo">
+        <img src="media/football-2.jpg" alt="Playing football">
+        <div class="caption">Match day</div>
+      </div>
+      <div class="photo">
+        <img src="media/guitar.jpg" alt="Playing guitar">
+        <div class="caption">Six strings</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact">
   <div class="reveal">
     <div class="section-label">Contact</div>
@@ -442,15 +634,31 @@
 
   // Reveal-on-scroll for sections
   const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
+  const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+        revealObserver.unobserve(entry.target);
       }
     });
   }, { threshold: 0.15 });
-  revealEls.forEach(el => observer.observe(el));
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // Play the About video only while it's on screen
+  const aboutVideo = document.getElementById('aboutVideo');
+  if (aboutVideo) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const p = aboutVideo.play();
+          if (p !== undefined) { p.catch(() => {}); }
+        } else {
+          aboutVideo.pause();
+        }
+      });
+    }, { threshold: 0.25 });
+    videoObserver.observe(aboutVideo);
+  }
 
   // Footer year
   document.getElementById('year').textContent = new Date().getFullYear();
