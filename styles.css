@@ -528,7 +528,14 @@ footer {
   transform: translateY(-4px);
   box-shadow: 0 18px 40px rgba(0,0,0,0.08);
 }
-.stage-figure img, .final-figure img {
+.stage-figure img {
+  display: block;
+  width: 100%;
+  height: 500px;
+  object-fit: contain;
+  background: #f4f2ec;
+}
+.final-figure img {
   display: block;
   width: 100%;
   height: auto;
