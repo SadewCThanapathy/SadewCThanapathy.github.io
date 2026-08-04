@@ -1,3 +1,4 @@
+/* color tokens */
 :root {
   --bg: #fafaf9;
   --ink: #1c1c1e;
@@ -7,10 +8,13 @@
   --card-border: #e9e9e7;
 }
 
+/* reset: consistent box model everywhere */
 * { box-sizing: border-box; }
 
+/* smooth scrolling for in page anchor links */
 html { scroll-behavior: smooth; }
 
+/* base page styles */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -19,10 +23,11 @@ body {
   overflow-x: hidden;
 }
 
+/* default link style, no underline until hover */
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/*  Nav  */
+/* nav: fixed top bar, blurred background */
 nav {
   position: fixed;
   top: 0;
@@ -37,14 +42,20 @@ nav {
   backdrop-filter: blur(10px);
   transition: box-shadow 0.3s ease, padding 0.3s ease;
 }
+
+/* nav: state added by script.js once scrolled past 20px */
 nav.scrolled {
   box-shadow: 0 1px 0 var(--card-border);
   padding: 14px 6vw;
 }
+
+/* nav: logo text */
 nav .logo {
   font-weight: 700;
   letter-spacing: -0.02em;
 }
+
+/* nav: link list layout */
 nav ul {
   list-style: none;
   display: flex;
@@ -52,11 +63,15 @@ nav ul {
   margin: 0;
   padding: 0;
 }
+
+/* nav: individual link style */
 nav ul li a {
   color: var(--ink);
   font-size: 0.95rem;
   position: relative;
 }
+
+/* nav: animated underline that grows on hover */
 nav ul li a::after {
   content: "";
   position: absolute;
@@ -70,6 +85,7 @@ nav ul li a::after {
 nav ul li a:hover { text-decoration: none; }
 nav ul li a:hover::after { width: 100%; }
 
+/* hero: full height intro section */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -81,6 +97,7 @@ nav ul li a:hover::after { width: 100%; }
   max-width: 900px;
 }
 
+/* hero: decorative blurred circle behind the text */
 .blob {
   position: absolute;
   width: 480px;
@@ -98,6 +115,7 @@ nav ul li a:hover::after { width: 100%; }
   50% { transform: translate(-30px, 40px) scale(1.08); }
 }
 
+/* hero: first element to fade in */
 .eyebrow {
   font-size: 0.85rem;
   text-transform: uppercase;
@@ -108,6 +126,7 @@ nav ul li a:hover::after { width: 100%; }
   animation-delay: 0.1s;
 }
 
+/* hero: main heading, second to fade in */
 .hero h1 {
   font-size: clamp(2.6rem, 6vw, 4.6rem);
   line-height: 1.05;
@@ -118,6 +137,7 @@ nav ul li a:hover::after { width: 100%; }
   animation-delay: 0.25s;
 }
 
+/* hero: role subtitle, third to fade in */
 .hero .role {
   font-size: clamp(1.05rem, 2vw, 1.3rem);
   color: var(--muted);
@@ -127,6 +147,7 @@ nav ul li a:hover::after { width: 100%; }
   animation-delay: 0.4s;
 }
 
+/* hero: bio paragraph */
 .hero p.bio {
   max-width: 560px;
   color: var(--muted);
@@ -137,6 +158,7 @@ nav ul li a:hover::after { width: 100%; }
   animation-delay: 0.55s;
 }
 
+/* hero: button row */
 .hero .cta {
   display: flex;
   gap: 14px;
@@ -145,6 +167,7 @@ nav ul li a:hover::after { width: 100%; }
   animation-delay: 0.7s;
 }
 
+/* buttons: shared base for both variants */
 .btn {
   padding: 12px 22px;
   border-radius: 999px;
@@ -153,12 +176,16 @@ nav ul li a:hover::after { width: 100%; }
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   display: inline-block;
 }
+
+/* buttons: solid dark variant */
 .btn.primary { background: var(--ink); color: #fff; }
 .btn.primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 24px rgba(0,0,0,0.15);
   text-decoration: none;
 }
+
+/* buttons: outlined variant */
 .btn.ghost { border: 1px solid var(--card-border); color: var(--ink); }
 .btn.ghost:hover {
   transform: translateY(-2px);
@@ -166,11 +193,13 @@ nav ul li a:hover::after { width: 100%; }
   text-decoration: none;
 }
 
+/* shared fade up on load */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(18px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* hero: "scroll" hint pinned to bottom-left */
 .scroll-cue {
   position: absolute;
   bottom: 36px;
@@ -193,13 +222,15 @@ nav ul li a:hover::after { width: 100%; }
   50% { transform: translateY(6px); opacity: 0.4; }
 }
 
-/*  Sections  */
+/* sections: base spacing, used by About/Education/Projects/Life/Contact */
 section {
   padding: 110px 6vw;
   max-width: 1100px;
   margin: 0 auto;
 }
 
+/* reveal: scroll triggered fade in, with script.js.
+   Not used on the blog post pages, they use inline opacity:1 instead */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -210,6 +241,7 @@ section {
   transform: translateY(0);
 }
 
+/* section label: small uppercase tag above every section heading */
 .section-label {
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -218,12 +250,14 @@ section {
   margin-bottom: 10px;
 }
 
+/* section headings, shared by every h2 site wide */
 h2 {
   font-size: clamp(1.7rem, 3vw, 2.2rem);
   letter-spacing: -0.02em;
   margin: 0 0 28px;
 }
 
+/* body copy: standard paragraph style, reused across sections and posts */
 .about-text {
   max-width: 680px;
   font-size: 1.08rem;
@@ -231,7 +265,7 @@ h2 {
   line-height: 1.75;
 }
 
-/*  About with video background  */
+/* about section: full bleed video background container */
 .about-video {
   position: relative;
   max-width: none;
@@ -239,9 +273,10 @@ h2 {
   padding: 140px 6vw;
   margin: 0;
   overflow: hidden;
-  background: #0f0f14; /* fallback if video fails */
+  background: #0f0f14;
 }
 
+/* about section: video fills and centers within its container */
 .about-video video {
   position: absolute;
   top: 50%;
@@ -255,6 +290,7 @@ h2 {
   z-index: 0;
 }
 
+/* about section: dark gradient overlay so text stays readable over video */
 .about-video::after {
   content: "";
   position: absolute;
@@ -268,6 +304,7 @@ h2 {
   z-index: 1;
 }
 
+/* about section: text content sits above the video and overlay */
 .about-video .inner {
   position: relative;
   z-index: 2;
@@ -275,19 +312,18 @@ h2 {
   margin: 0 auto;
 }
 
+/* about section: light on dark text overrides */
 .about-video .section-label { color: #a8b0ff; }
-
 .about-video h2 {
   color: #fff;
   text-shadow: 0 2px 20px rgba(0,0,0,0.55);
 }
-
 .about-video .about-text {
   color: rgba(255,255,255,0.9);
   text-shadow: 0 1px 14px rgba(0,0,0,0.5);
 }
 
-/*  Skills  */
+/* skills: pill tag row under the about text */
 .skills {
   display: flex;
   flex-wrap: wrap;
@@ -308,7 +344,7 @@ h2 {
   background: var(--accent-soft);
 }
 
-/* Skills placed on the dark video section */
+/* skills: light on dark variant for the video section */
 .about-video .skill {
   background: rgba(255,255,255,0.1);
   border-color: rgba(255,255,255,0.28);
@@ -320,7 +356,7 @@ h2 {
   border-color: #fff;
 }
 
-/*  Education  */
+/* education: vertical timeline entries */
 .edu-item {
   border-left: 2px solid var(--card-border);
   padding: 4px 0 4px 24px;
@@ -348,6 +384,8 @@ h2 {
   margin: 0;
   line-height: 1.65;
 }
+
+/* education: highlighted achievement badge */
 .award {
   display: inline-block;
   margin-top: 10px;
@@ -359,12 +397,14 @@ h2 {
   font-weight: 600;
 }
 
-/*  Projects  */
+/* projects: responsive card grid */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 22px;
 }
+
+/* projects: base card style */
 .card {
   display: block;
   border: 1px solid var(--card-border);
@@ -381,6 +421,8 @@ h2 {
   border-color: transparent;
   text-decoration: none;
 }
+
+/* projects: card tag label */
 .card .tag {
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -389,8 +431,12 @@ h2 {
   margin-bottom: 10px;
   display: inline-block;
 }
+
+/* projects: card title and body text */
 .card h3 { margin: 0 0 10px; font-size: 1.15rem; color: var(--ink); }
 .card p { color: var(--muted); font-size: 0.95rem; margin: 0; }
+
+/* projects: fake "link" text at the end of a card, styled but not a real <a> */
 .card .card-link {
   display: inline-block;
   margin-top: 4px;
@@ -399,12 +445,15 @@ h2 {
 }
 .card:hover .card-link { text-decoration: underline; }
 
+/* projects: featured modifier, marks cards that link to a real write up */
 .card.featured {
   border: 1.5px solid var(--accent);
   background: var(--accent-soft);
   position: relative;
   padding-right: 56px;
 }
+
+/* projects: arrow icon on featured cards, visible at rest not just on hover */
 .card.featured::after {
   content: "\2192";
   position: absolute;
@@ -417,12 +466,14 @@ h2 {
 .card.featured:hover::after { transform: translateX(4px); }
 .card.featured .card-link { text-decoration: underline; }
 
-/*  Photo gallery  */
+/* gallery: photo grid layout */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 18px;
 }
+
+/* gallery: fixed aspect ratio photo tile */
 .photo {
   position: relative;
   border-radius: 16px;
@@ -438,6 +489,8 @@ h2 {
   transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .photo:hover img { transform: scale(1.06); }
+
+/* gallery: caption overlay, hidden until hover */
 .photo .caption {
   position: absolute;
   left: 0;
@@ -457,7 +510,7 @@ h2 {
   transform: translateY(0);
 }
 
-/*  Contact  */
+/* contact: external links */
 .contact-links {
   display: flex;
   flex-wrap: wrap;
@@ -480,7 +533,7 @@ h2 {
   text-decoration: none;
 }
 
-/*  Footer  */
+/* footer: site wide footer bar, #year filled in by script.js */
 footer {
   padding: 40px 6vw 60px;
   text-align: center;
@@ -488,19 +541,20 @@ footer {
   font-size: 0.85rem;
 }
 
-/*  Responsive  */
+/* responsive: small screen adjustments */
 @media (max-width: 640px) {
   nav ul { display: none; }
   .blob { display: none; }
   .about-video { padding: 100px 6vw; }
 }
 
+/* accessibility */
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
 }
 
-/*  Blog Post Pages (e.g. week-in-my-life.html)  */
+/* blog posts: title block wrapper */
 .post-header { max-width: 760px; margin: 0 auto; }
 .post-title {
   font-size: clamp(2rem, 4.5vw, 2.8rem);
@@ -508,14 +562,19 @@ footer {
   margin: 10px 0 6px;
   letter-spacing: -0.02em;
 }
+
+/* blog posts: small line under the title, publish date */
 .post-meta {
   color: var(--muted);
   font-size: 0.95rem;
   margin-bottom: 10px;
 }
+
+/* blog posts: article body wrapper, matches header width */
 .post-body { max-width: 760px; margin: 0 auto; }
 .post-body h2 { margin-top: 56px; font-size: 1.4rem; }
 
+/* blog posts: shared card wrapper for embedded images */
 .stage-figure, .final-figure {
   margin: 28px 0;
   border: 1px solid var(--card-border);
@@ -528,6 +587,9 @@ footer {
   transform: translateY(-4px);
   box-shadow: 0 18px 40px rgba(0,0,0,0.08);
 }
+
+/* blog posts: process photos, fixed height + contain stops tall portrait
+   photos from stretching the page, letterboxed on a neutral background */
 .stage-figure img {
   display: block;
   width: 100%;
@@ -535,11 +597,15 @@ footer {
   object-fit: contain;
   background: #f4f2ec;
 }
+
+/* blog posts: final/hero image, shown at full natural size */
 .final-figure img {
   display: block;
   width: 100%;
   height: auto;
 }
+
+/* blog posts: figure captions */
 .stage-figure figcaption {
   padding: 14px 18px;
   font-size: 0.9rem;
@@ -552,6 +618,7 @@ footer {
   border-top: 1px solid var(--card-border);
 }
 
+/* blog posts: highlighted callout box, used for the Reflection section */
 .reflection-box {
   background: var(--accent-soft);
   border-radius: 16px;
@@ -559,6 +626,8 @@ footer {
   margin: 20px 0;
 }
 .reflection-box p:last-child { margin-bottom: 0; }
+
+/* blog posts: small "not finished" tag, not currently used on either live page */
 .todo-tag {
   display: inline-block;
   background: #fff3cd;
@@ -571,6 +640,7 @@ footer {
   margin-bottom: 12px;
 }
 
+/* blog posts: APA reference list with hanging indent */
 .post-refs { list-style: none; padding-left: 0; }
 .post-refs li {
   margin-bottom: 14px;

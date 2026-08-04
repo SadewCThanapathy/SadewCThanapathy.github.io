@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<!-- Nav bar: fixed top nav, script.js adds "scrolled" class past 20px scroll -->
 <nav id="nav">
   <div class="logo">ST</div>
   <ul>
@@ -19,7 +20,9 @@
   </ul>
 </nav>
 
+<!-- Hero: full height intro, each one fades up with a staggered delay -->
 <section class="hero">
+  <!-- Decorative blurred circle -->
   <div class="blob"></div>
   <div class="eyebrow">Portfolio</div>
   <h1>Sadew Thanapathy</h1>
@@ -36,11 +39,12 @@
   <div class="scroll-cue"><span class="dot"></span> Scroll</div>
 </section>
 
-<!-- ABOUT with video background -->
+<!-- About: video background, muted/looped, only plays while on screen -->
 <section id="about" class="about-video">
   <video id="aboutVideo" muted loop playsinline preload="metadata" poster="media/about-poster.jpg">
     <source src="media/about-cover.mp4" type="video/mp4">
   </video>
+  <!-- .reveal fades in via IntersectionObserver in script.js -->
   <div class="inner reveal">
     <div class="section-label">About</div>
     <h2>A little more about me</h2>
@@ -61,7 +65,7 @@
   </div>
 </section>
 
-<!-- EDUCATION -->
+<!-- Education: timeline entries -->
 <section id="education">
   <div class="reveal">
     <div class="section-label">Education</div>
@@ -84,42 +88,49 @@
   </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- Projects: static cards + two clickable "featured" cards linking to write ups -->
 <section id="projects">
   <div class="reveal">
     <div class="section-label">Projects</div>
     <h2>What I've built</h2>
     <div class="projects-grid">
+
       <div class="card">
         <span class="tag">Web App</span>
         <h3>Climate Data Database & Web Application</h3>
         <p>Built a database and web application around climate data, covering everything from data storage to a working front end.</p>
       </div>
+
       <div class="card">
         <span class="tag">Game Dev</span>
         <h3>Minecraft Game Development</h3>
         <p>Designed and built a custom Minecraft project with a team, covering game mechanics and world design.</p>
       </div>
+
       <div class="card">
         <span class="tag">Web Design</span>
         <h3>Small Business Websites</h3>
         <p>Designed and built websites for local small businesses, including a bakery, focused on clean and simple customer facing design.</p>
       </div>
+
+      <!-- Whole card made the link, not just the title -->
       <a class="card featured" href="week-in-my-life.html">
         <span class="tag">Hand-Drawn Viz</span>
         <h3>Hand Drawn Data Visualisation</h3>
-        <p>A hand drawn chart inspired by pioneers of data visualisation like Playfair, Minard, and Nightingale capturing the full creative process. <span class="card-link">Read the write-up &rarr;</span></p>
+        <p>A hand drawn chart inspired by pioneers of data visualisation like Playfair, Minard, and Nightingale capturing the full creative process. <span class="card-link">Read the write-up →</span></p>
       </a>
+
       <a class="card featured" href="gestalt-exercise.html">
         <span class="tag">Perception Analysis</span>
         <h3>FIFA World Rankings: A Gestalt Analysis</h3>
-        <p>Applying preattentive processing, Gestalt laws, and visual accuracy theory to a published FIFA World Rankings visualisation. <span class="card-link">Read the write-up &rarr;</span></p>
+        <p>Applying preattentive processing, Gestalt laws, and visual accuracy theory to a published FIFA World Rankings visualisation. <span class="card-link">Read the write-up →</span></p>
       </a>
+
     </div>
   </div>
 </section>
 
-<!--PHOTOS -->
+<!-- Life: photo gallery, captions fade in on hover -->
 <section id="life">
   <div class="reveal">
     <div class="section-label">Beyond the screen</div>
@@ -141,7 +152,7 @@
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- Contact -->
 <section id="contact">
   <div class="reveal">
     <div class="section-label">Contact</div>
@@ -154,6 +165,7 @@
   </div>
 </section>
 
+<!-- Footer: #year filled in by script.js -->
 <footer>
   © <span id="year"></span> Sadew Thanapathy.
 </footer>
