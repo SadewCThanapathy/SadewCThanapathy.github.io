@@ -1,1 +1,0 @@
-# SadewCThanapathy.github.io
