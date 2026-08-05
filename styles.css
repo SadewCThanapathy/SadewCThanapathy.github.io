@@ -297,9 +297,9 @@ h2 {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(10, 10, 16, 0.78),
-    rgba(10, 10, 16, 0.68) 50%,
-    rgba(10, 10, 16, 0.82)
+    rgba(10, 10, 16, 0.55),
+    rgba(10, 10, 16, 0.45) 50%,
+    rgba(10, 10, 16, 0.6)
   );
   z-index: 1;
 }
@@ -316,11 +316,11 @@ h2 {
 .about-video .section-label { color: #a8b0ff; }
 .about-video h2 {
   color: #fff;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.55);
+  text-shadow: 0 2px 24px rgba(0,0,0,0.75), 0 1px 4px rgba(0,0,0,0.6);
 }
 .about-video .about-text {
-  color: rgba(255,255,255,0.9);
-  text-shadow: 0 1px 14px rgba(0,0,0,0.5);
+  color: rgba(255,255,255,0.95);
+  text-shadow: 0 1px 18px rgba(0,0,0,0.7), 0 1px 3px rgba(0,0,0,0.55);
 }
 
 /* skills: pill tag row under the about text */
