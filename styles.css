@@ -445,12 +445,16 @@ h2 {
 }
 .card:hover .card-link { text-decoration: underline; }
 
-/* projects: featured modifier, marks cards that link to a real write up */
 .card.featured {
   border: 1.5px solid var(--accent);
   background: var(--accent-soft);
   position: relative;
   padding-right: 56px;
+}
+
+/* projects: standalone modifier, forces a card onto its own row without stretching its width */
+.card.standalone {
+  grid-column: 1;
 }
 
 /* projects: arrow icon on featured cards, visible at rest not just on hover */
