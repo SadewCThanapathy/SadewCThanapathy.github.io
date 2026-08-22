@@ -653,3 +653,39 @@ footer {
   text-indent: -2em;
   color: var(--muted);
 }
+
+/* blog posts: verification table used on the tax verification page */
+.verify-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 28px 0;
+  font-size: 0.95rem;
+}
+
+/* blog posts: verification table used on the tax verification page */
+.table-wrap {
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  margin: 28px 0;
+}
+.verify-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.verify-table th, .verify-table td {
+  padding: 12px 16px;
+  text-align: center;
+  border-bottom: 1px solid var(--card-border);
+}
+.verify-table th {
+  color: var(--accent);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.verify-table td {
+  color: var(--muted);
+}
