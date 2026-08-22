@@ -457,6 +457,29 @@ h2 {
   grid-column: 1;
 }
 
+/* projects: tax verification card */
+.card.tax-accent {
+  border-color: #7EF2D2;
+  background: color-mix(in srgb, #7EF2D2 15%, white);
+}
+.card.tax-accent .tag,
+.card.tax-accent .card-link {
+  color: color-mix(in srgb, #7EF2D2 55%, black);
+}
+.card.tax-accent::after { color: color-mix(in srgb, #7EF2D2 55%, black); }
+
+/* projects: technical skills card */
+.card.skills-accent {
+  border-color: #12DEE3;
+  background: color-mix(in srgb, #12DEE3 15%, white);
+}
+.card.skills-accent .tag,
+.card.skills-accent .card-link {
+  color: color-mix(in srgb, #12DEE3 55%, black);
+}
+.card.skills-accent::after { color: color-mix(in srgb, #12DEE3 55%, black); }
+
+
 /* projects: arrow icon on featured cards, visible at rest not just on hover */
 .card.featured::after {
   content: "\2192";
@@ -689,3 +712,15 @@ footer {
 .verify-table td {
   color: var(--muted);
 }
+
+/* skills page:tier label above each group of skill pills */
+.skill-level {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-weight: 600;
+  margin: 22px 0 8px;
+}
+.skill-group:first-of-type .skill-level { margin-top: 12px; }
