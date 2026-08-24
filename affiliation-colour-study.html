@@ -127,13 +127,37 @@
     </div>
 
     <h2>What I Did</h2>
-   
+    <p class="about-text">
+      I built both charts in Python using pandas and matplotlib. The data came as one row per
+      category per year.The first step was pivoting it into a wide format with one column per
+      affiliation category, which is what matplotlib actually needs to draw a stack. I also had to reindex
+      the data against the full 1950–2025 calendar range, since 15 years had no recorded systems at all.
+      Otherwise it would have been skipped rather than shown as empty.
+    </p>
+    <p class="about-text">
+      For the reproduction, I matched the master's exact hexadecimal codes and its stacking order
+      and checked my totals directly against the numbers shown in Our World in Data's own chart tooltip 
+      to confirm the underlying data matched exactly.
+    </p>
 
     <h2>Reproduction (Original Colour Scale)</h2>
-    
+    <figure class="final-figure">
+      <img src="media/module5/master visualization.jpg" alt="My Python reproduction of the affiliation chart, using the master's original colour scale">
+      <figcaption>Figure 3. My reproduction, built in Python with pandas and matplotlib, colour matched to the master.</figcaption>
+    </figure>
 
     <h2>Reconstruction: Developing an Alternative Colour Scale</h2>
-    
+    <p class="about-text">
+      I developed a categorical color scale because the chart shows four types of affiliations instead of
+      showing the values in an increasing order. Dark blue is used for Industry as it is the most
+      significant category over the past few years. The affiliation that combines Academia and Industry
+      uses green as it can be easily identified from the two sectors. Light blue was chosen for Academia,
+      and light yellow shows other affiliations.
+    </p>
+    <figure class="final-figure">
+      <img src="media/module5/alternative color master visualization.jpg" alt="My reconstruction of the affiliation chart, using an alternative colour scale">
+      <figcaption>Figure 4. Reconstruction, using an alternative colour scale.</figcaption>
+    </figure>
 
     <h2>References</h2>
     <ul class="post-refs">
