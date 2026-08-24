@@ -28,13 +28,34 @@
 
   <div class="post-body">
 
-   
+    <p class="about-text">
+      This exercise was aboout finding a data visualisation built by a master designer and reproduce it.
+      Then reconstruct it using an alternative colour scale. I chose a stacked bar chart published by Our World in
+      Data, tracing its underlying numbers back to Epoch AI, and rebuilt both versions in Python.
+    </p>
 
     <h2>The Master Visualisation</h2>
-   
+    <p class="about-text">
+      The chart shows the annual number of notable AI systems published each year since 1950, broken
+      down by the primary institutional affiliation of the research team Industry, Academia, a
+      collaboration between the two, and Other.
+    </p>
+    <figure class="stage-figure">
+      <img src="media/module5/owid-ss.jpg" alt="Screenshot of the Our World in Data chart: Affiliation of research teams building notable AI systems, by year of publication">
+      <figcaption>Figure 1. Screenshot of the master visualisation. Source: Our World in Data (2025).</figcaption>
+    </figure>
 
     <h2>The Primary Source</h2>
-  
+    <p class="about-text">
+      Our World in Data does not collect this data. This was originated from Epoch
+      AI's own database of AI models, which classifies each system's authors by institutional affiliation.
+      Percentage based rules (100% private sector authorship counts as
+      "Industry", at least 30% from each sector counts as a collaboration).
+    </p>
+    <figure class="stage-figure">
+      <img src="media/module5/primary-ss.jpg" alt="Screenshot of Epoch AI's Notable AI Models data explorer">
+      <figcaption>Figure 2. Screenshot of the primary data source. Source: Epoch AI (2026).</figcaption>
+    </figure>
 
     <h2>Data Card</h2>
     
@@ -46,10 +67,17 @@
     
 
     <h2>Reconstruction: Developing an Alternative Colour Scale</h2>
-   
+    
 
     <h2>References</h2>
-   
+    <ul class="post-refs">
+      <li>Epoch AI. (2026). <em>Parameter, compute and data trends in machine learning: Notable AI
+        models</em> <br>[Data set].
+        <br> https://epoch.ai/data/ai-models?view=graph&tab=notable</li>
+      <li>Our World in Data (2025, March 12). <em>Affiliation of research teams building notable AI
+        systems by year of publication.</em> Our World in Data.<br>
+        https://ourworldindata.org/grapher/affiliation-researchers-building-artificial-intelligence-systems-all</li>
+    </ul>
 
   </div>
 </section>
