@@ -479,6 +479,16 @@ h2 {
 }
 .card.skills-accent::after { color: color-mix(in srgb, #12DEE3 55%, black); }
 
+/* projects: colour theory card */
+.card.colour-accent {
+  border-color: #0b0e1d;
+  background: color-mix(in srgb, #0b0e1d 15%, white);
+}
+.card.colour-accent .tag,
+.card.colour-accent .card-link {
+  color: color-mix(in srgb, #0b0e1d 55%, black);
+}
+.card.colour-accent::after { color: color-mix(in srgb, #0b0e1d 55%, black); }
 
 /* projects: arrow icon on featured cards, visible at rest not just on hover */
 .card.featured::after {
@@ -622,7 +632,7 @@ footer {
   width: 100%;
   height: 500px;
   object-fit: contain;
-  background: #f4f2ec;
+    background: #fff;;
 }
 
 /* blog posts: final/hero image, shown at full natural size */
@@ -678,14 +688,6 @@ footer {
 }
 
 /* blog posts: verification table used on the tax verification page */
-.verify-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 28px 0;
-  font-size: 0.95rem;
-}
-
-/* blog posts: verification table used on the tax verification page */
 .table-wrap {
   border: 1px solid var(--card-border);
   border-radius: 16px;
@@ -711,6 +713,24 @@ footer {
 }
 .verify-table td {
   color: var(--muted);
+}
+
+/* Module 5 datacard. */
+.datacard-table th {
+  width: 160px;
+  text-align: left;
+  vertical-align: top;
+  background: var(--accent-soft);
+}
+.datacard-table td {
+  text-align: left;
+  vertical-align: top;
+}
+.datacard-table td ul { margin: 4px 0; padding-left: 20px; }
+.datacard-table td li { margin-bottom: 6px; }
+
+.datacard-table a {
+  color: var(--ink);
 }
 
 /* skills page:tier label above each group of skill pills */
