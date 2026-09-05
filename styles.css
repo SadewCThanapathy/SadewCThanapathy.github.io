@@ -500,8 +500,21 @@ h2 {
   color: var(--accent);
   transition: transform 0.3s ease;
 }
+
 .card.featured:hover::after { transform: translateX(4px); }
 .card.featured .card-link { text-decoration: underline; }
+
+.card.access-accent {
+  border-color: #3d5a80;
+  background: color-mix(in srgb, #3d5a80 15%, white);
+}
+.card.access-accent .tag,
+.card.access-accent .card-link {
+  color: color-mix(in srgb, #3d5a80 55%, black);
+}
+.card.access-accent::after {
+  color: color-mix(in srgb, #3d5a80 55%, black);
+}
 
 /* gallery: photo grid layout */
 .gallery {
