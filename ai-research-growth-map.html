@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapping the Growth of AI Research Around the World — Sadew Thanapathy</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="logo"><a href="index.html" style="color:inherit;">ST</a></div>
+  <ul>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#education">Education</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#life">Life</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section style="padding-top: 160px;">
+  <div class="post-header">
+    <div class="section-label">Module 8 Portfolio Exercise</div>
+    <h1 class="post-title">Mapping the Growth of AI Research Around the World</h1>
+    <p class="post-meta">Published 26 September 2026. Portfolio Part II, Bundle I</p>
+  </div>
+
+  <div class="post-body">
+
+    <p class="about-text">
+      For Module 8 I built an original choropleth map showing how fast each country's AI research
+      output grew between 2016 and 2024, using country boundary data joined to a
+      compound annual growth rate (CAGR) computed from CSET's publication counts. Full sourcing,
+     choices, and known limitations are documented in the data card below.
+    </p>
+
+    <h2>The Visualisation</h2>
+    <figure class="final-figure">
+      <img src="media/module8/ai_cagr_choropleth.png" alt="Choropleth map of compound annual growth rate in AI publications by country, 2016 to 2024">
+      <figcaption>Figure 1. Compound annual growth rate (CAGR) in AI scholarly publications by country, 2016–2024. Data: Center for Security and Emerging Technology (2026); boundaries: Natural Earth (n.d.).</figcaption>
+    </figure>
+
+    <h2>Why a Choropleth</h2>
+    <p class="about-text">
+      Choropleth maps were chosen over a cartogram or proportional symbol map because the underlying
+      variable, CAGR, is a rate that applies evenly across each country's whole territory, which is
+      exactly what choropleths are built to show through shaded regions.
+    </p>
+
+    <h2>Data Card</h2>
+    <div class="table-wrap">
+      <table class="verify-table datacard-table">
+        <tbody>
+          <tr>
+            <th>Title</th>
+            <td>Compound annual growth rate of AI scholarly publications, by country (2016–2024)</td>
+          </tr>
+          <tr>
+            <th>Summary</th>
+            <td>
+              A choropleth map of the world showing the growth of AI scholarly publications of each 
+              country from 2016 to 2024 in terms of Compound Annual Growth Rate (CAGR). Six equally sized 
+              classes of countries based on a sequential color scale. 44 out of 190 countries do not have 
+              CAGR (zero publications in any year). They are shown in grey instead of removing from the map.
+              An equal earth projection is employed to show the true size of country's territory.  
+            </td>
+          </tr>
+          <tr>
+            <th>Data Sources</th>
+            <td>
+              <ul>
+                <li>Center for Security and Emerging Technology. (2026). [Data set]. Emerging Technology Observatory, Georgetown University. <a href="https://eto.tech/dataset-docs/country-activity-tracker/" target="_blank" rel="noopener">https://eto.tech/dataset-docs/country-activity-tracker/</a></li>
+                <li>Natural Earth. Admin 0 – Countries [Data set]. <a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/" target="_blank" rel="noopener">https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/</a></li>
+                <li>Our World in Data. (2026). <em>Annual scholarly publications on artificial intelligence</em> [Data set]. <a href="https://ourworldindata.org/grapher/annual-scholarly-publications-on-artificial-intelligence" target="_blank" rel="noopener">https://ourworldindata.org/grapher/annual-scholarly-publications-on-artificial-intelligence</a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Mapping</th>
+            <td>
+              <ul>
+                <li>Geometry: country boundary polygons, 1:10m resolution, 258 features (Natural Earth) </li>
+                <li>Color: CAGR of AI scholarly publications, 2016 – 2024, grouped into 6 equal classes. Processed by OWID and colors were chosen from ColorBrewer sequential 6 class palette.  </li>
+                <li>No data: countries missing a publication count in 2016 or 2024 shown in grey. </li>
+                <li>Projection: uses a projection called Equal Earth, without just plotting raw latitude/longitude. Because the default stretches countries near the poles to look much bigger than they really are.  </li>
+                <li>Annotation: growth rate legend showing a small 2016 baseline. (Uzbekistan increased from 5 to 481 publications) </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Important Notes</th>
+            <td>
+              <ul>
+                <li>Regional groups exclusion: the 7 OWID region/world aggregate rows (eg: World, Africa) were removed before analysis. Not countries and have no boundary map. </li>
+                <li>Kosovo included because of its disputed status: Kosovo is a country and kept on the map even though it is not universally recognized as one and does not have an official country code. Leaving would have meant losing real data.</li>
+                <li>Countries map fix: The map country shapes come from one source, and the publication numbers come from another. Alternative matching method was used instead to make sure every country's data landed on correct shape.  </li>
+                <li>Countries grouped by rank: not by value range. Countries were split into 6 equal sized groups 24 each. This was done because most countries cluster around similar growth rates while a few extreme outliers would stretch the scale. </li>
+                <li>Antarctica excluded: not a country and has no publication data</li>
+                <li>Known limitation: CSET (primary source) states that its tracker may undercount publications that are not in English or Chinese since its text scanning process is strongest for those two languages.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Access</th>
+            <td>
+              <strong>Table:</strong> OWID's Annual scholarly publications on artificial intelligence.<br>
+              <a href="https://ourworldindata.org/grapher/annual-scholarly-publications-on-artificial-intelligence?tab=table" target="_blank" rel="noopener">https://ourworldindata.org/grapher/annual-scholarly-publications-on-artificial-intelligence?tab=table</a>
+              <br><br>
+              <strong>CSV file:</strong> annual-scholarly-publications-on-artificial-intelligence.csv<br>
+              <a href="https://ourworldindata.org/grapher/annual-scholarly-publications-on-artificial-intelligence.csv?v=1&csvType=full&useColumnShortNames=false" target="_blank" rel="noopener">https://ourworldindata.org/grapher/annual-scholarly-publications-on-artificial-intelligence.csv?v=1&csvType=full&useColumnShortNames=false</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Reflection</h2>
+    <div class="reflection-box">
+      <p>
+        The trickiest part of this module wasn't the code, it was reading the result correctly.
+        A country's growth rate and its research volume are two different things, so the darkest
+        colour on the map is not the same as "produces the most AI research" and it took checking
+        the actual underlying numbers to be sure of that. Switching to an equal area projection was
+        a similarly small change with an outsized effect.
+      </p>
+    </div>
+
+    <h2>References</h2>
+    <ul class="post-refs">
+      <li>Center for Security and Emerging Technology. (2026). <em>Country Activity Tracker: AI publications</em> [Data set]. Emerging Technology Observatory, Georgetown University. <br>https://eto.tech/dataset-docs/country-activity-tracker/</li>
+      <li>Natural Earth. (n.d.). Admin 0 – Countries [Data set].<br> https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/</li>
+      <li>Our World in Data. (2026). <em>Annual scholarly publications on artificial intelligence</em> [Data set].<br> https://ourworldindata.org/grapher/annual-scholarly-publications-on-artificial-intelligence</li>
+    </ul>
+
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Sadew Thanapathy.
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
