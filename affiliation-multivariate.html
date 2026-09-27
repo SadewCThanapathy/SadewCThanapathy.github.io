@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Make It Multivariate: Domain and the AI Affiliation Chart — Sadew Thanapathy</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="logo"><a href="index.html" style="color:inherit;">ST</a></div>
+  <ul>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#education">Education</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#life">Life</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section style="padding-top: 160px;">
+  <div class="post-header">
+    <div class="section-label">Module 7 Portfolio Exercise</div>
+    <h1 class="post-title">Make It Multivariate: Adding Domain to the Affiliation Chart</h1>
+    <p class="post-meta">Published 20 September 2026. Portfolio Part II, Bundle I</p>
+  </div>
+
+  <div class="post-body">
+
+    <p class="about-text">
+      This exercise was about taking a chart I had already built and making it multivariate. I went back to the AI affiliation chart from Module 5 and 6 and added
+      Domain as a fourth variable, splitting it into small multiples so each AI application area gets its own
+      panel.
+    </p>
+
+    <h2>Choosing Domain as the Fourth Variable</h2>
+    <p class="about-text">
+      The Module 5/6 chart already had three variables mapped through standard aesthetics: Year on the x axis,
+      Count of AI systems on the y axis, and Affiliation through colour and stacking. I picked faceting, breaking the chart into small multiples.
+    </p>
+    <p class="about-text">
+      The raw Epoch AI dataset lets a model carry more than one Domain tag, and there are 19 different tags in
+      total. Before deciding which ones deserved their own panel I counted how often each tag actually
+      appears. Language, Vision, Multimodal, Image generation and Speech came out as the top 5 by frequency.
+      Games was actually 6th, just ahead of Biology, but I kept Biology instead once I checked the affiliation
+      totals for every domain and found it was the only one where Academia outnumbers Industry. 
+    </p>
+
+    <h2>The Multivariate Chart</h2>
+    <figure class="final-figure">
+      <img src="media/module7/domain-affiliation-smallmultiples.png" alt="Small multiples chart showing notable AI systems by year and researcher affiliation, faceted by domain">
+      <figcaption>Figure 1. Small multiples of the affiliation chart, faceted by Domain. Each panel is a stacked bar chart of notable AI systems by year (1950-2025), coloured by researcher affiliation.</figcaption>
+    </figure>
+
+    <h2>What I Did</h2>
+    <p class="about-text">
+      I built this using pandas and matplotlib, but
+      switched to Epoch AI's raw notable_ai_models.csv instead of the pre aggregated Our World in Data file,
+      since the OWID version doesn't include a Domain column. Year of publication and the Industry, Academia,
+      Academia and industry collaboration, Other affiliation categories were carried over unchanged.
+    </p>
+    <p class="about-text">
+      Because a model can carry more than one Domain tag, I split each model into one row per tag because it gets
+      counted once in every panel it belongs to, rather than only once overall. That is also why the panel
+      counts (n=) add up to more than the number of models in the dataset.
+    </p>
+
+    <h2>Data Card</h2>
+    <div class="table-wrap">
+      <table class="verify-table datacard-table">
+        <tbody>
+          <tr>
+            <th>Title</th>
+            <td>Notable AI systems in each domain, by researcher affiliation</td>
+          </tr>
+          <tr>
+            <th>Summary</th>
+            <td>Small multiple charts consisting 7 panels. One for each of the 7 AI domains 
+                (Language, Vision, Multimodal, Image Generation, Speech, Biology, Others). Biology is the only
+                 domain where Academia surpass Industry. The chart in each panel is a stacked bar chart that 
+                 shows the AI systems invented each year from 1950 to 2025. OWID visualization consists of 
+                 three variables(year, number of AI systems, and Affiliation). Added variable is Domain to
+                  make this visualization multivariate.  </td>
+          </tr>
+          <tr>
+            <th>Data Sources</th>
+            <td>
+              Epoch AI. (2026). <em>Data on AI models</em> [Data set]. Epoch AI.<br>
+              https://epoch.ai/data/ai-models?view=graph&tab=notable
+              <br><br>
+              Our World in Data. (2025, March 12). Affiliation of research teams building notable AI systems by year of publication.
+              Our World in Data . 
+              https://ourworldindata.org/grapher/affiliation-researchers-building-artificial-intelligence-systems-all 
+            </td>
+          </tr>
+          <tr>
+            <th>Mapping</th>
+            <td>
+              <ul>
+                <li>X axis: Year of publication. 1950-2025. One bar per year (Epoch AI, 2026 processing by Our World in Data 2025) .</li>
+                <li>Y axis: Number of notable AI systems. Independent scale per panel. (Epoch AI, 2026) .</li>
+                <li>Faceting: Domain. 6 individual domains. (Language, Vision, Multimodal, Image generation, Speech, Biology, and Other domains)  </li>
+                <li>Colour: Affiliation category (Industry, Academia and industry collaboration, Academia, Other) </li>
+                <li>Hatch: diagonal hatch pattern on Academia and industry collaboration bars.  </li>
+                <li>Panel title: Domain name and n(number of models) </li>
+                <li>Annotation: Biology panel, mentioning it is the only domain led by Academia  </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Important Notes</th>
+            <td>
+              <ul>
+                <li>Category consolidation: Organization was collapsed into 4 affiliation categories.  </li>
+                <li>Multi domain models: Domain field allows more than one tag per model. Each model was split into one row per tag and counted once in every matching panel.  </li>
+                <li>Missing domain: models with no domain values were placed in ‘Other domains’. </li>
+                <li>Domain panel selection: 6 panels were chosen. Top 5 domains and Biology domain. </li>
+                <li>Independent y axis: bar heights are only comparable within a single panel over time. </li>
+                <li>Notable: Epoch AI’s own criterion stating historical and technical significance. </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Access</th>
+            <td>
+              <strong>Table:</strong> view directly on Epoch AI's Data on AI Models page<br>
+              <a href="https://epoch.ai/data/ai-models?view=table&tab=notable" target="_blank" rel="noopener">https://epoch.ai/data/ai-models?view=table&tab=notable</a>
+              <br><br>
+              <strong>CSV file:</strong> notable_ai_models.csv downloadable (Epoch AI)<br>
+              <a href="https://epoch.ai/data/ai_models.zip " target="_blank" rel="noopener">https://epoch.ai/data/ai_models.zip </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>References</h2>
+    <ul class="post-refs">
+      <li>Epoch AI. (2026). <em>Data on AI models</em> [Data set]. Epoch AI.<br>
+        https://epoch.ai/data/ai-models?view=graph&tab=notable</li>
+      <li>Our World in Data. (2025, March 12).<I> Affiliation of research teams building notable AI systems by year of
+         publication. Our World in Data .</I> <br> 
+         https://ourworldindata.org/grapher/affiliation-researchers-building-artificial-intelligence-systems-all </li>
+    </ul>
+
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Sadew Thanapathy.
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
