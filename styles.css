@@ -516,6 +516,32 @@ h2 {
   color: color-mix(in srgb, #3d5a80 55%, black);
 }
 
+/* projects: multivariate domain analysis card (Module 7) */
+.card.multivariate-accent {
+  border-color: #E36414;
+  background: color-mix(in srgb, #E36414 15%, white);
+}
+.card.multivariate-accent .tag,
+.card.multivariate-accent .card-link {
+  color: color-mix(in srgb, #E36414 55%, black);
+}
+.card.multivariate-accent::after {
+  color: color-mix(in srgb, #E36414 55%, black);
+}
+
+/* projects: AI research growth map card */
+.card.map-accent {
+  border-color: #1d91c0;
+  background: color-mix(in srgb, #1d91c0 15%, white);
+}
+.card.map-accent .tag,
+.card.map-accent .card-link {
+  color: color-mix(in srgb, #1d91c0 55%, black);
+}
+.card.map-accent::after {
+  color: color-mix(in srgb, #1d91c0 55%, black);
+}
+
 /* gallery: photo grid layout */
 .gallery {
   display: grid;
