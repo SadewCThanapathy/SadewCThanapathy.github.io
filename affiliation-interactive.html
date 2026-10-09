@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Making the AI Affiliation Chart Interactive — Sadew Thanapathy</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="logo"><a href="index.html" style="color:inherit;">ST</a></div>
+  <ul>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#education">Education</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#life">Life</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section style="padding-top: 160px;">
+  <div class="post-header">
+    <div class="section-label">Module 9 Portfolio Exercise</div>
+    <h1 class="post-title">Making the AI Affiliation Chart Interactive</h1>
+    <p class="post-meta">Published 8 October 2026. Portfolio Part II, Bundle II</p>
+  </div>
+
+  <div class="post-body">
+
+    <p class="about-text">
+      For Module 9 I took my stacked bar chart of the affiliation of researchers building notable AI
+      systems and made it interactive with two features. A detailed tooltip and a Counts / Share (%)
+      toggle. Both are built in Plotly and hosted on Posit Connect Cloud.
+    </p>
+
+    <h2>The Visualisation</h2>
+    <figure class="final-figure wide-figure">
+      <iframe src="https://01a12045-1b85-a0af-0074-e09a881569ae.share.connect.posit.cloud"
+              title="Interactive stacked bar chart of the affiliation of researchers building notable AI systems by year of publication, with a Counts and Share (%) toggle"
+              style="display:block; width:100%; height:720px; border:0;"
+              loading="lazy"></iframe>
+      <figcaption>
+        Figure 1. Interactive chart: hover a bar for exact numbers and use the Counts / Share (%) buttons to switch views.
+        <a href="https://01a12045-1b85-a0af-0074-e09a881569ae.share.connect.posit.cloud" target="_blank" rel="noopener">Open the chart in its own tab →</a>
+      </figcaption>
+    </figure>
+
+    <h2>Interactive Features</h2>
+
+    <p class="about-text">
+      <strong>Detailed tooltip.</strong> Hovering a bar shows more detail on demand, which is the
+      Abstract/Elaborate category. It lets the viewer read the exact number and share for every affiliation in that year, plus the year's total. 
+    </p>
+
+    <p class="about-text">
+      <strong>Counts / Share (%) toggle.</strong> Two clearly labelled buttons change the encoding of the
+      y axis between the number of systems and each affiliation's proportion of the year.
+    </p>
+
+    <h2>Interactive Views</h2>
+
+    <figure class="final-figure">
+      <img src="media/module9/img1.png" alt="Stacked bar chart of notable AI systems per year from 1950 to 2025 in Counts view, with an annotation showing 97 of 106 systems in 2025 came from industry.">
+      <figcaption>Figure 2. Counts view (default), showing the number of notable AI systems per year.</figcaption>
+    </figure>
+
+    <figure class="final-figure">
+      <img src="media/module9/img3.png" alt="The same chart in Share view, with every bar scaled to 100 percent and an annotation showing 91.5 percent of 2025 systems came from industry.">
+      <figcaption>Figure 3. Share (%) view, where every year is scaled to 100%.</figcaption>
+    </figure>
+
+    <figure class="final-figure">
+      <img src="media/module9/img2.png" alt="The chart zoomed to the years 2010 to 2025 in Counts view.">
+      <figcaption>Figure 4. Zoomed view of 2010–2025, the years when most systems were built.</figcaption>
+    </figure>
+
+    <figure class="final-figure">
+      <img src="media/module9/img4.png" alt="Tooltip over the industry segment of the 2023 bar showing counts and shares for all four affiliations and a total of 119, with industry in bold.">
+      <figcaption>Figure 5. Tooltip on the Industry segment of 2023, with the hovered category in bold and the others in grey.</figcaption>
+    </figure>
+
+    <figure class="final-figure">
+      <img src="media/module9/img5.png" alt="Tooltip in Share view over the collaboration segment of the 2010 bar, showing counts and shares for all four affiliations and a total of 10, with collaboration in bold.">
+      <figcaption>Figure 6. Tooltip in Share view for 2010, where a single system makes up 10% of the bar.</figcaption>
+    </figure>
+
+    <h2>Data Card</h2>
+    <div class="table-wrap">
+      <table class="verify-table datacard-table">
+        <tbody>
+          <tr>
+            <th>Title</th>
+            <td>Affiliation of researchers building notable AI systems by year of publication</td>
+          </tr>
+          <tr>
+            <th>Summary</th>
+            <td>
+              Stacked bar charts showing notable AI systems developed each year from 1950 to 2025. Broken down
+              according to affiliation of researchers. The number of systems is growing exponentially. 34 in the
+              entire 1990s, 324 in the 2010s, and 543 from 2020 till 2025. Viewers can use a tooltip to see
+              precise numbers and percentages and switch between numbers and 100% scale.
+            </td>
+          </tr>
+          <tr>
+            <th>Data Sources</th>
+            <td>
+              <ul>
+                <li>Our World in Data. (2025, March 12). <em>Affiliation of research teams building notable AI systems by year of publication.</em> Our World in Data. <a href="https://ourworldindata.org/grapher/affiliation-researchers-building-artificial-intelligence-systems-all" target="_blank" rel="noopener">https://ourworldindata.org/grapher/affiliation-researchers-building-artificial-intelligence-systems-all</a></li>
+                <li>Epoch AI. (2026, August). <em>Data on AI models</em> [Data set]. <a href="https://epoch.ai/data/ai-models?view=graph&tab=notable#explore-the-data" target="_blank" rel="noopener">https://epoch.ai/data/ai-models?view=graph&tab=notable#explore-the-data</a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Mapping</th>
+            <td>
+              <ul>
+                <li>X axis: years of publication.</li>
+                <li>Y axis: counts view/share view. Number/percentage of AI systems published that year</li>
+                <li>Color: Affiliation category. Industry, Academia, Academia and Industry collaboration and Other. Collaboration is hatched.</li>
+                <li>Interaction: hovering bars. The count/share view buttons switch the y axis and the annotation.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Important Notes</th>
+            <td>
+              <ul>
+                <li>Category consolidation: Epoch AI documents six affiliation types (Industry, Academia, Research Collective, None profit, and two variants of collaboration). Our World in Data have consolidated the two collaboration variants into one, and folded collective and non profit into “Other”.</li>
+                <li>Missing years: 15 of the 76 years (eg: 1951, 1953, 1956,...) have no notable systems. They were added as 0s.</li>
+                <li>Notable is Epoch AI’s selection based on technical significance. Therefore the chart shows notable systems and not all AI systems.</li>
+                <li>Early years have very small counts (1-2 systems). Shares before about 1990 swing between 0% and 100%.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Access</th>
+            <td>
+              <strong>Table:</strong> download directly from Our World in Data chart page<br>
+              <a href="https://ourworldindata.org/grapher/affiliation-researchers-building-artificial-intelligence-systems-all?tab=table" target="_blank" rel="noopener">https://ourworldindata.org/grapher/affiliation-researchers-building-artificial-intelligence-systems-all?tab=table</a>
+              <br><br>
+              <strong>CSV file:</strong> download the csv file used to create the visualization. (Our World in Data)<br>
+              <a href="https://ourworldindata.org/grapher/affiliation-researchers-building-artificial-intelligence-systems-all.zip?v=1&csvType=full&useColumnShortNames=false" target="_blank" rel="noopener">https://ourworldindata.org/grapher/affiliation-researchers-building-artificial-intelligence-systems-all.zip?v=1&csvType=full&useColumnShortNames=false</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>References</h2>
+    <ul class="post-refs">
+      <li>Epoch AI. (2026, August). <em>Data on AI models</em> [Data set].<br> https://epoch.ai/data/ai-models?view=graph&tab=notable#explore-the-data</li>
+      <li>Our World in Data. (2025, March 12). <em>Affiliation of research teams building notable AI systems by year of publication.</em> Our World in Data.<br> https://ourworldindata.org/grapher/affiliation-researchers-building-artificial-intelligence-systems-all</li>
+    </ul>
+
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Sadew Thanapathy.
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
