@@ -783,3 +783,23 @@ footer {
   margin: 22px 0 8px;
 }
 .skill-group:first-of-type .skill-level { margin-top: 12px; }
+
+/* projects: interactive chart card (Module 9) */
+.card.interactive-accent {
+  border-color: #609836;
+  background: color-mix(in srgb, #609836 15%, white);
+}
+.card.interactive-accent .tag,
+.card.interactive-accent .card-link {
+  color: color-mix(in srgb, #609836 55%, black);
+}
+.card.interactive-accent::after {
+  color: color-mix(in srgb, #609836 55%, black);
+}
+
+/* blog posts: figure that breaks out of the 760px column. charts keep their size */
+.wide-figure {
+  width: min(1180px, 94vw);
+  margin-left: calc(50% - min(590px, 47vw));
+}
+.wide-figure img { cursor: zoom-in; }
