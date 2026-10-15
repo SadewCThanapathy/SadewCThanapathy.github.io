@@ -797,9 +797,22 @@ footer {
   color: color-mix(in srgb, #609836 55%, black);
 }
 
-/* blog posts: figure that breaks out of the 760px column. charts keep their size */
+/* blog posts */
 .wide-figure {
   width: min(1180px, 94vw);
   margin-left: calc(50% - min(590px, 47vw));
 }
 .wide-figure img { cursor: zoom-in; }
+
+/* projects: multiplot card (Module 10) */
+.card.multiplot-accent {
+  border-color: #124E78;
+  background: color-mix(in srgb, #124E78 15%, white);
+}
+.card.multiplot-accent .tag,
+.card.multiplot-accent .card-link {
+  color: color-mix(in srgb, #124E78 55%, black);
+}
+.card.multiplot-accent::after {
+  color: color-mix(in srgb, #124E78 55%, black);
+}

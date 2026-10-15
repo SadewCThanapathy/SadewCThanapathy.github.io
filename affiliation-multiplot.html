@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multiplot: Composition and Trend of AI Affiliation — Sadew Thanapathy</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="logo"><a href="index.html" style="color:inherit;">ST</a></div>
+  <ul>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#education">Education</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#life">Life</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section style="padding-top: 160px;">
+  <div class="post-header">
+    <div class="section-label">Module 10 Portfolio Exercise</div>
+    <h1 class="post-title">Multiplot It: Composition and Trend of AI Affiliation</h1>
+    <p class="post-meta">Published 15 October 2026. Portfolio Part II, Bundle II</p>
+  </div>
+
+  <div class="post-body">
+
+    <p class="about-text">
+      For Module 10 I combined two related views of the AI affiliation data into one multiplot. A stacked
+      bar chart sits on top of a line chart, and both are linked by a Counts/Share (%) toggle and a shared
+      legend. It is built in Plotly and hosted on Posit Connect Cloud.
+    </p>
+
+    <h2>The Visualisation</h2>
+    <figure class="final-figure wide-figure">
+      <iframe src="https://01a13ecb-6a80-cb4c-a0e9-2c0bf815d16c.share.connect.posit.cloud"
+              title="Interactive multiplot with a stacked bar chart and a line chart of the affiliation of researchers building notable AI systems by year of publication, with a Counts and Share (%) toggle and a shared legend"
+              style="display:block; width:100%; height:880px; border:0;"
+              loading="lazy"></iframe>
+      <figcaption>
+        Figure 1. Interactive multiplot: hover the bars or lines, use the Counts/Share (%) buttons and click the legend to hide a category.
+        <a href="https://01a13ecb-6a80-cb4c-a0e9-2c0bf815d16c.share.connect.posit.cloud" target="_blank" rel="noopener">Open the chart in its own tab →</a>
+      </figcaption>
+    </figure>
+
+    <h2>Design Choices</h2>
+
+    <p class="about-text">
+      <strong>Juxtaposition.</strong> Both charts use the same data with the same year on the x axis and the same
+      colour for each affiliation. The bars show each year's total, and the lines show each
+      affiliation on a common baseline.
+    </p>
+
+    <p class="about-text">
+      <strong>Visual emphasis.</strong> The bar chart is on top as the main view. In the line chart the Industry
+      line is thicker and solid while the other lines are thinner and dashed.
+    </p>
+
+    <h2>Interactive Features</h2>
+
+    <p class="about-text">
+      <strong>Counts/Share (%) toggle.</strong> One button switches the y axis of both charts and the annotation
+      between the number of systems and each affiliation's share of the year.
+    </p>
+
+    <p class="about-text">
+      <strong>Shared legend.</strong> Clicking a category in the legend hides it in both charts at once,
+      which filters the data and connects the two views.
+    </p>
+
+    <h2>Interactive Views</h2>
+
+    <figure class="final-figure">
+      <img src="media/module10/101.png" alt="Multiplot in Counts view, with a stacked bar chart above a line chart of notable AI systems per year from 1950 to 2025 and an annotation showing 97 of 106 systems in 2025 came from industry.">
+      <figcaption>Figure 2. Counts view (default), showing the number of notable AI systems per year.</figcaption>
+    </figure>
+
+    <figure class="final-figure">
+      <img src="media/module10/102.png" alt="The multiplot in Share view, with every bar scaled to 100 percent, a line chart of each affiliation's share, and an annotation showing 91.5 percent of 2025 systems came from industry.">
+      <figcaption>Figure 3. Share(%) view, where both charts show each affiliation's proportion of the year.</figcaption>
+    </figure>
+
+    <figure class="final-figure">
+      <img src="media/module10/103.png" alt="Tooltip over the industry segment of the 2023 bar showing counts and shares for all four affiliations and a total of 119, with industry in bold.">
+      <figcaption>Figure 4. Tooltip on the Industry segment of the 2023 bar, with the hovered category in bold.</figcaption>
+    </figure>
+
+    <figure class="final-figure">
+      <img src="media/module10/104.png" alt="Tooltip on the industry line for 2023 showing a value of 69 systems.">
+      <figcaption>Figure 5. Tooltip on the Industry line for 2023, showing the same value as the bar.</figcaption>
+    </figure>
+
+    <figure class="final-figure">
+      <img src="media/module10/105.png" alt="The multiplot with Academia hidden through the legend, so its bars and line are removed from both charts and its legend entry is greyed out.">
+      <figcaption>Figure 6. Academia hidden through the shared legend.</figcaption>
+    </figure>
+
+    <h2>Data Card</h2>
+    <div class="table-wrap">
+      <table class="verify-table datacard-table">
+        <tbody>
+          <tr>
+            <th>Title</th>
+            <td>Affiliation of researchers building notable AI systems by year of publication. Composition and trend</td>
+          </tr>
+          <tr>
+            <th>Summary</th>
+            <td>
+              Two related views of the notable AI systems introduced each year from 1950 to 2025. A stacked bar
+              chart shows how each year's total is split by affiliation, and a line chart shows the trend of each
+              affiliation on a common baseline. There were 34 systems in the 1990s, 324 in the 2010s and 543 from
+              2020 to 2025. Industry accounts for 97 of the 106 systems in 2025. Viewers can hover for exact
+              figures and switch both charts between numbers and percentages.
+            </td>
+          </tr>
+          <tr>
+            <th>Data Sources</th>
+            <td>
+              <ul>
+                <li>Our World in Data. (2025, March 12). <em>Affiliation of research teams building notable AI systems by year of publication.</em> Our World in Data. <a href="https://ourworldindata.org/grapher/affiliation-researchers-building-artificial-intelligence-systems-all" target="_blank" rel="noopener">https://ourworldindata.org/grapher/affiliation-researchers-building-artificial-intelligence-systems-all</a></li>
+                <li>Epoch AI. (2026, August). <em>Data on AI models</em> [Data set]. <a href="https://epoch.ai/data/ai-models?view=graph&tab=notable#explore-the-data" target="_blank" rel="noopener">https://epoch.ai/data/ai-models?view=graph&tab=notable#explore-the-data</a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Mapping</th>
+            <td>
+              <ul>
+                <li>X axis: years of publication, shared by both charts.</li>
+                <li>Y axis: counts or share view. Number or percentage of AI systems published that year.</li>
+                <li>Colour: affiliation category, the same colours in both charts. Collaboration is hatched in the bars.</li>
+                <li>Position: the stacked bar chart is on top as the main view, with the line chart below.</li>
+                <li>Line weight: Industry is a thicker solid line and the other categories are thinner and dashed.</li>
+                <li>Interaction: hovering bars and lines. The Counts/Share (%) buttons switch the y axis of both charts and the annotation, and the legend hides a category in both charts.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Important Notes</th>
+            <td>
+              <ul>
+                <li>Category consolidation: Epoch AI documents six affiliation types (Industry, Academia, Research Collective, Non-profit, and two variants of collaboration). Our World in Data consolidated the two collaboration variants into one, and folded collective and non-profit into “Other”.</li>
+                <li>Missing years: 15 of the 76 years (e.g. 1951, 1953, 1956,...) have no notable systems. They were added as 0s.</li>
+                <li>Early years have very small counts. Shares before about 1990 swing between 0% and 100% in both charts.</li>
+                <li>Line chart uses the same data as the bar chart. In the share view each line is the category's percentage of that year's total.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <th>Access</th>
+            <td>
+              <strong>Table:</strong> download directly from Our World in Data chart page<br>
+              <a href="https://ourworldindata.org/grapher/affiliation-researchers-building-artificial-intelligence-systems-all?tab=table" target="_blank" rel="noopener">https://ourworldindata.org/grapher/affiliation-researchers-building-artificial-intelligence-systems-all?tab=table</a>
+              <br><br>
+              <strong>CSV file:</strong> download the csv file used to create the visualization. (Our World in Data)<br>
+              <a href="https://ourworldindata.org/grapher/affiliation-researchers-building-artificial-intelligence-systems-all.zip?v=1&csvType=full&useColumnShortNames=false" target="_blank" rel="noopener">https://ourworldindata.org/grapher/affiliation-researchers-building-artificial-intelligence-systems-all.zip?v=1&csvType=full&useColumnShortNames=false</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>References</h2>
+    <ul class="post-refs">
+      <li>Epoch AI. (2026, August). <em>Data on AI models</em> [Data set].<br> https://epoch.ai/data/ai-models?view=graph&tab=notable#explore-the-data</li>
+      <li>Our World in Data. (2025, March 12). <em>Affiliation of research teams building notable AI systems by year of publication.</em> Our World in Data.<br> https://ourworldindata.org/grapher/affiliation-researchers-building-artificial-intelligence-systems-all</li>
+    </ul>
+
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Sadew Thanapathy.
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
